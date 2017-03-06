@@ -4,29 +4,65 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+	[SerializeField] public int loadableBulletCount;
+	[SerializeField] public int magazineCount;
+
 	[SerializeField] private GameObject fireParticle;
 	[SerializeField] private AudioClip shotSound;
-	[SerializeField] public int bullet_count;
+	[SerializeField] private AudioClip reloadSound;
+	[SerializeField] private float coolTime;
 
 	private AudioSource audioSource;
 	private bool isEmpty;
+	private int loadedBulletCount;
+	private bool isChilling;
 
 	// Use this for initialization
 	private void Start ()
 	{
 		isEmpty = false;
+		isChilling = false;
 		audioSource = this.GetComponent<AudioSource> ();
+		loadedBulletCount = loadableBulletCount; // 装弾可能な段数を格納
+	}
+
+	public void Reload ()
+	{
+		// 装弾数、弾倉がある場合
+		if (loadedBulletCount > 0 && magazineCount > 0) {
+			// 既存の弾倉を捨て、新しいものと入れ替える
+			magazineCount--;
+			loadedBulletCount = loadableBulletCount;
+			audioSource.PlayOneShot (reloadSound);
+		}
 	}
 
 	public void Shot (Vector3 hitPoint)
 	{
 		Fire (hitPoint);
+		isChilling = true;
 		ConsumeBullet ();
+		StartCoroutine ("CountCoolTime");
 	}
 
-	public bool hasAny ()
+	public bool canShot ()
 	{
-		return !isEmpty;
+		if (isEmpty) {
+			Debug.Log ("弾倉が空です");
+		}
+
+		if (isChilling) {
+			Debug.Log ("クールタイムなう");
+		}
+
+		return !isEmpty && !isChilling;
+	}
+
+	IEnumerator CountCoolTime ()
+	{
+		yield return new WaitForSeconds (coolTime);
+
+		isChilling = false;
 	}
 
 	private void Fire (Vector3 hitPoint)
@@ -34,17 +70,17 @@ public class GunController : MonoBehaviour
 		GameObject fire = Instantiate (fireParticle, hitPoint, Quaternion.identity);
 		audioSource.PlayOneShot (shotSound);
 
-		Destroy (fire, 0.5f);
+		Destroy (fire, 0.3f);
 	}
 
 	private void ConsumeBullet ()
 	{
-		bullet_count--;
+		loadedBulletCount--;
 
-		if (bullet_count == 0) {
+		if (loadedBulletCount == 0) {
 			isEmpty = true;
 		
-		} else if (bullet_count < 0) {
+		} else if (loadedBulletCount < 0) {
 			Debug.Log ("弾数がマイナスになっています");
 		}
 	}
