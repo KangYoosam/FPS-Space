@@ -6,8 +6,8 @@ public class GunController : MonoBehaviour
 {
 	[SerializeField] public int loadableBulletCount;
 	[SerializeField] public int magazineCount;
+	public int loadedBulletCount;
 
-	[SerializeField] private int loadedBulletCount;
 	[SerializeField] private GameObject fireParticle;
 	[SerializeField] private AudioClip shotSound;
 	[SerializeField] private AudioClip reloadSound;
