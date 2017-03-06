@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
 	[SerializeField] private GameObject fireParticle;
 	[SerializeField] private AudioClip shotSound;
+	[SerializeField] public int bullet_count;
 
 	private AudioSource audioSource;
 	private bool isEmpty;
@@ -19,14 +20,32 @@ public class GunController : MonoBehaviour
 
 	public void Shot (Vector3 hitPoint)
 	{
+		Fire (hitPoint);
+		ConsumeBullet ();
+	}
+
+	public bool hasAny ()
+	{
+		return !isEmpty;
+	}
+
+	private void Fire (Vector3 hitPoint)
+	{
 		GameObject fire = Instantiate (fireParticle, hitPoint, Quaternion.identity);
 		audioSource.PlayOneShot (shotSound);
 
 		Destroy (fire, 0.5f);
 	}
 
-	public bool hasAny ()
+	private void ConsumeBullet ()
 	{
-		return !isEmpty;
+		bullet_count--;
+
+		if (bullet_count == 0) {
+			isEmpty = true;
+		
+		} else if (bullet_count < 0) {
+			Debug.Log ("弾数がマイナスになっています");
+		}
 	}
 }
