@@ -10,10 +10,6 @@ public class PlayerController : MonoBehaviour
 	private void Update ()
 	{
 		RayCast ();
-
-		if (Input.GetKeyDown (KeyCode.R)) {
-			gun.Reload ();
-		}
 	}
 
 	private void RayCast ()
@@ -22,8 +18,14 @@ public class PlayerController : MonoBehaviour
 		RaycastHit hit;
 
 		if (Physics.Raycast (ray, out hit)) {
-			if (Input.GetMouseButton (0) && gun.canShot ()) {
+			if (Input.GetMouseButton (0) && gun.hasAny ()) {
 				gun.Shot (hit.point);
+//				gun.UseBullet ();
+//				TargetController target = hit.collider.gameObject.GetComponent<TargetController> ();
+//				if (target != null) {
+//					target.Hit ();
+//					score.CalcScore (hit.point);
+//				}
 			}
 		}
 	}
