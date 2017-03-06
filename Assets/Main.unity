@@ -5359,7 +5359,7 @@ MonoBehaviour:
   loadableBulletCount: 30
   magazineCount: 2
   loadedBulletCount: 0
-  fireParticle: {fileID: 1492443502367710, guid: 9369f5480563a480796db0b0030c7c35,
+  fireParticle: {fileID: 1098873011067184, guid: 4fcc4ae49677044ae8d5b3ed0c36238f,
     type: 2}
   shotSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
   reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
@@ -13605,7 +13605,7 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 992517646}
---- !u!114 &885451022
+--- !u!114 &885451019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -13613,7 +13613,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 885451018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78cd1b9fd5c5f4b98a4010a67f9e0ce9, type: 3}
+  m_Script: {fileID: 11500000, guid: bcb31617280474072a2bf0ecc61e0e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 322859309}
@@ -33267,6 +33267,7 @@ GameObject:
   - component: {fileID: 2061393379}
   - component: {fileID: 2061393378}
   - component: {fileID: 2061393381}
+  - component: {fileID: 2061393382}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -33365,8 +33366,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 756185498}
-  magazine: {fileID: 0}
+  magazine: {fileID: 993382614}
   gunController: {fileID: 322859309}
+--- !u!114 &2061393382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061393376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb31617280474072a2bf0ecc61e0e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 0}
 --- !u!1001 &2062430071
 Prefab:
   m_ObjectHideFlags: 0
