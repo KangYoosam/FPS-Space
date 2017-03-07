@@ -8,7 +8,9 @@ public class GunController : MonoBehaviour
 	[SerializeField] public int magazineCount;
 	public int loadedBulletCount;
 
+	[SerializeField] private GameObject muzzle;
 	[SerializeField] private GameObject fireParticle;
+	[SerializeField] private GameObject MuzzlefireParticle;
 	[SerializeField] private AudioClip shotSound;
 	[SerializeField] private AudioClip reloadSound;
 	[SerializeField] private float coolTime;
@@ -67,10 +69,12 @@ public class GunController : MonoBehaviour
 
 	private void Fire (Vector3 hitPoint)
 	{
-		GameObject fire = Instantiate (fireParticle, hitPoint, Quaternion.identity);
+		GameObject muzzleFire = Instantiate (MuzzlefireParticle, muzzle.transform.position, Quaternion.identity);
 		audioSource.PlayOneShot (shotSound);
+		GameObject fire = Instantiate (fireParticle, hitPoint, Quaternion.identity);
 
-		Destroy (fire, 0.3f);
+		Destroy (muzzleFire, 0.3f);
+		Destroy (fire, 0.5f);
 	}
 
 	private void ConsumeBullet ()
