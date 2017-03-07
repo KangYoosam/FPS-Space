@@ -5389,7 +5389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadableBulletCount: 30
-  magazineCount: 2
+  magazineCount: 10
   loadedBulletCount: 0
   muzzle: {fileID: 35082875}
   fireParticle: {fileID: 1098873011067184, guid: 4fcc4ae49677044ae8d5b3ed0c36238f,
