@@ -75,7 +75,6 @@ public class GunController : MonoBehaviour
 
 		if (loadedBulletCount == 0) {
 			isEmpty = true;
-		
 		}
 	}
 }
