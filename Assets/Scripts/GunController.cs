@@ -49,14 +49,6 @@ public class GunController : MonoBehaviour
 
 	public bool canShot ()
 	{
-		if (isEmpty) {
-			Debug.Log ("弾倉が空です");
-		}
-
-		if (isChilling) {
-			Debug.Log ("クールタイムなう");
-		}
-
 		return !isEmpty && !isChilling;
 	}
 
@@ -84,8 +76,6 @@ public class GunController : MonoBehaviour
 		if (loadedBulletCount == 0) {
 			isEmpty = true;
 		
-		} else if (loadedBulletCount < 0) {
-			Debug.Log ("弾数がマイナスになっています");
 		}
 	}
 }
