@@ -30,22 +30,20 @@ public class GunController : MonoBehaviour
 
 	public void Reload ()
 	{
-		if (canReload ()) {
-			int consumedBulletCount = loadableBulletCount - loadedBulletCount;
+		int consumedBulletCount = loadableBulletCount - loadedBulletCount;
 
-			if (consumedBulletCount <= magazineCount) {
-				magazineCount -= consumedBulletCount;
-				loadedBulletCount += consumedBulletCount;
-			} else {
-				magazineCount = 0;
-				loadedBulletCount += magazineCount;
-			}
-
-			audioSource.PlayOneShot (reloadSound);
+		if (consumedBulletCount <= magazineCount) {
+			magazineCount -= consumedBulletCount;
+			loadedBulletCount += consumedBulletCount;
+		} else {
+			magazineCount = 0;
+			loadedBulletCount += magazineCount;
 		}
+
+		audioSource.PlayOneShot (reloadSound);
 	}
 
-	private bool canReload ()
+	public bool canReload ()
 	{
 		return loadedBulletCount < loadableBulletCount && magazineCount > 0;
 	}
