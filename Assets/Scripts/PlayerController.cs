@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
 	{
 		RayCast ();
 
-		if (Input.GetKeyDown (KeyCode.R)) {
-			gun.Reload ();
-		}
+//		if (Input.GetKeyDown (KeyCode.R)) {
+//			gun.Reload ();
+//		}
 	}
 
 	private void RayCast ()

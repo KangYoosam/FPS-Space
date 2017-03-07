@@ -28,16 +28,16 @@ public class GunController : MonoBehaviour
 		loadedBulletCount = loadableBulletCount; // 装弾可能な段数を格納
 	}
 
-	public void Reload ()
-	{
-		// 装弾数、弾倉がある場合
-		if (loadedBulletCount > 0 && magazineCount > 0) {
-			// 既存の弾倉を捨て、新しいものと入れ替える
-			magazineCount--;
-			loadedBulletCount = loadableBulletCount;
-			audioSource.PlayOneShot (reloadSound);
-		}
-	}
+	//	public void Reload ()
+	//	{
+	//		// 装弾数、弾倉がある場合
+	//		if (loadedBulletCount > 0 && magazineCount > 0) {
+	//			// 既存の弾倉を捨て、新しいものと入れ替える
+	//			magazineCount--;
+	//			loadedBulletCount = loadableBulletCount;
+	//			audioSource.PlayOneShot (reloadSound);
+	//		}
+	//	}
 
 	public void Shot (Vector3 hitPoint)
 	{
