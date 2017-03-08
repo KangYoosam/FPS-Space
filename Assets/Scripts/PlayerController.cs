@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
 		if (Physics.Raycast (ray, out hit)) {
 			if (Input.GetMouseButton (0) && gun.canShot ()) {
-				gun.Shot (hit.point);
+				gun.Shot (hit);
 			}
 		}
 	}
