@@ -18,22 +18,22 @@ public class GameManager : MonoBehaviour
 		distanceFromCenter -= 184f;
 
 		if (distanceFromCenter < 0.26f) {
-			return 100;
+			return 10;
 
 		} else if (distanceFromCenter < 0.262f) {
-			return 90;
+			return 8;
 
 		} else if (distanceFromCenter < 0.264f) {
-			return 80;
+			return 7;
 
 		} else if (distanceFromCenter < 0.266f) {
-			return 70;
+			return 5;
 
 		} else if (distanceFromCenter < 0.268f) {
-			return 60;
+			return 3;
 
 		} else {
-			return 50;
+			return 1;
 		}
 	}
 }
