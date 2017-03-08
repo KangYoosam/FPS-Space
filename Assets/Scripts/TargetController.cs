@@ -5,20 +5,23 @@ using UnityEngine;
 public class TargetController : MonoBehaviour
 {
 	[SerializeField] private int life;
-	private Animator animator;
+	[SerializeField] private float wakeUpTime;
+	[SerializeField] private Animator animator;
 	private int attackedCount;
 
-	private void Start ()
-	{
-		animator = this.GetComponent<Animator> ();
-	}
-
-	public void attacked ()
+	public void Attacked ()
 	{
 		attackedCount++;
-
+		print (attackedCount);
 		if (life == attackedCount) {
-			animator.SetBool ();
+			animator.SetBool ("Broken", true);
+			attackedCount = 0;
+			Invoke ("WakeUp", wakeUpTime);
 		}
+	}
+
+	private void WakeUp ()
+	{
+		animator.SetBool ("Broken", false);
 	}
 }

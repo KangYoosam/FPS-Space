@@ -53,7 +53,7 @@ public class GunController : MonoBehaviour
 		Fire (hit.point);
 
 		if (hit.transform.tag == "target") {
-			hit.transform.GetComponent<TargetController> ().attacked ();
+			hit.transform.GetComponent<TargetController> ().Attacked ();
 		}
 
 		isChilling = true;
