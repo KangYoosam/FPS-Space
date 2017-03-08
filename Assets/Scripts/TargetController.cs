@@ -12,9 +12,9 @@ public class TargetController : MonoBehaviour
 	public void Attacked ()
 	{
 		attackedCount++;
-		print (attackedCount);
+
 		if (life == attackedCount) {
-			animator.SetBool ("Broken", true);
+			animator.SetBool ("broken", true);
 			attackedCount = 0;
 			Invoke ("WakeUp", wakeUpTime);
 		}
@@ -22,6 +22,6 @@ public class TargetController : MonoBehaviour
 
 	private void WakeUp ()
 	{
-		animator.SetBool ("Broken", false);
+		animator.SetBool ("broken", false);
 	}
 }
