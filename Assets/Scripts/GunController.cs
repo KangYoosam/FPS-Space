@@ -13,6 +13,7 @@ public class GunController : MonoBehaviour
 	[SerializeField] private GameObject muzzlefireParticle;
 	[SerializeField] private AudioClip shotSound;
 	[SerializeField] private AudioClip reloadSound;
+	[SerializeField] private GameManager gameManager;
 	[SerializeField] private float coolTime;
 
 	private AudioSource audioSource;
@@ -54,6 +55,7 @@ public class GunController : MonoBehaviour
 
 		if (hit.transform.tag == "target") {
 			hit.transform.GetComponent<TargetController> ().Attacked ();
+			gameManager.CalculateScoreUsing (hit.point);
 		}
 
 		isChilling = true;
