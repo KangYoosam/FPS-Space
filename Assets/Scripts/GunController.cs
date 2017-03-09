@@ -53,8 +53,10 @@ public class GunController : MonoBehaviour
 	{
 		Fire (hit.point);
 
-		if (hit.transform.tag == "target") {
-			hit.transform.GetComponent<TargetController> ().Attacked ();
+		TargetController target = hit.transform.GetComponent<TargetController> ();
+
+		if (target != null) {
+			target.Attacked ();
 			gameManager.CalculateScoreUsing (hit.point);
 		}
 
