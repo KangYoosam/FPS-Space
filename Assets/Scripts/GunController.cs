@@ -10,9 +10,10 @@ public class GunController : MonoBehaviour
 
 	[SerializeField] private GameObject muzzle;
 	[SerializeField] private GameObject fireParticle;
-	[SerializeField] private GameObject MuzzlefireParticle;
+	[SerializeField] private GameObject muzzlefireParticle;
 	[SerializeField] private AudioClip shotSound;
 	[SerializeField] private AudioClip reloadSound;
+	[SerializeField] private GameManager gameManager;
 	[SerializeField] private float coolTime;
 
 	private AudioSource audioSource;
@@ -48,9 +49,17 @@ public class GunController : MonoBehaviour
 		return loadedBulletCount < loadableBulletCount && magazineCount > 0;
 	}
 
-	public void Shot (Vector3 hitPoint)
+	public void Shot (RaycastHit hit)
 	{
-		Fire (hitPoint);
+		Fire (hit.point);
+
+		TargetController target = hit.transform.GetComponent<TargetController> ();
+
+		if (target != null) {
+			target.Attacked ();
+			gameManager.CalculateScoreUsing (hit.point);
+		}
+
 		isChilling = true;
 		ConsumeBullet ();
 		StartCoroutine ("CountCoolTime");
@@ -70,7 +79,7 @@ public class GunController : MonoBehaviour
 
 	private void Fire (Vector3 hitPoint)
 	{
-		GameObject muzzleFire = Instantiate (MuzzlefireParticle, muzzle.transform.position, Quaternion.identity);
+		GameObject muzzleFire = Instantiate (muzzlefireParticle, muzzle.transform.position, Quaternion.identity);
 		audioSource.PlayOneShot (shotSound);
 		GameObject fire = Instantiate (fireParticle, hitPoint, Quaternion.identity);
 
