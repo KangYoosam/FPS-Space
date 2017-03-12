@@ -238,6 +238,37 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 114966352282587664, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 940417369}
+    - target: {fileID: 114966352282587664, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 1481068237}
+    - target: {fileID: 114211692774674180, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Point: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966352282587664, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1677184160}
+    - target: {fileID: 1377899367795554, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114509012716350706, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Time:
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -427,6 +458,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1481068237 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114211692774674180, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 992517646}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1677184160 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114509012716350706, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 992517646}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &2054025123
 Prefab:
   m_ObjectHideFlags: 0
