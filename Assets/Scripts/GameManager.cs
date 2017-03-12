@@ -10,11 +10,10 @@ public class GameManager : MonoBehaviour
 	public void CalculateScoreUsing (Vector3 hitPosition)
 	{
 		float distanceFromCenter = Vector2.Distance ((Vector2)hitPosition, marker);
-		score += GetScoreByDistance (distanceFromCenter);
-		print (score);
+		score += GetScore (distanceFromCenter);
 	}
 
-	private int GetScoreByDistance (float distanceFromCenter)
+	private int GetScore (float distanceFromCenter)
 	{
 		distanceFromCenter -= 184f;
 
@@ -36,10 +35,5 @@ public class GameManager : MonoBehaviour
 		} else {
 			return 1;
 		}
-	}
-
-	public int GetCurrentPoint ()
-	{
-		return this.score;
 	}
 }
