@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Text point;
 	[SerializeField] private Text bullet;
 	[SerializeField] private Text magazine;
+	[SerializeField] private Image sniper;
 	[SerializeField] private GunController gunController;
 	[SerializeField] private GameManager gameManager;
 	private float time;
@@ -20,5 +21,14 @@ public class UIManager : MonoBehaviour
 		point.text = "Pt : " + gameManager.GetCurrentPoint ();
 		bullet.text = "Bullet : " + gunController.loadedBulletCount + "/" + gunController.loadableBulletCount;
 		magazine.text = "BulletBox : " + gunController.magazineCount;
+	}
+
+	public void toggleSniperImage (bool isSniper)
+	{
+		if (isSniper) {
+			this.sniper.enabled = true;
+		} else {
+			this.sniper.enabled = false;
+		}
 	}
 }
