@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 	private void Start ()
 	{
 		this.isSniper = false;
+		uiManager.toggleSniperImage (this.isSniper);
 	}
 
 	// Update is called once per frame
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
 	private void SwitchBetweenSniperMode ()
 	{
 		this.isSniper = !this.isSniper;
-
 		uiManager.toggleSniperImage (this.isSniper);
 	}
 }

@@ -258,6 +258,35 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114277872441770426, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114277872441770426, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114277872441770426, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966352282587664, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1892364407}
+    - target: {fileID: 114966352282587664, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: offset
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664845785658962, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114709310369773568, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -454,6 +483,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 992517646}
   m_Script: {fileID: 11500000, guid: d363c6b9e740a475e80e8e3c5b148361, type: 3}
+--- !u!20 &1892364407 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 992517646}
 --- !u!1001 &2054025123
 Prefab:
   m_ObjectHideFlags: 0

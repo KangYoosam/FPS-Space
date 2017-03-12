@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Text bullet;
 	[SerializeField] private Text magazine;
 	[SerializeField] private Image sniper;
+	[SerializeField] private Camera camera;
+	[SerializeField] private float offset;
 	[SerializeField] private GunController gunController;
 	[SerializeField] private GameManager gameManager;
 	private float time;
@@ -27,8 +29,11 @@ public class UIManager : MonoBehaviour
 	{
 		if (isSniper) {
 			this.sniper.enabled = true;
+			this.camera.fieldOfView -= this.offset;
+		
 		} else {
 			this.sniper.enabled = false;
+			this.camera.ResetFieldOfView ();
 		}
 	}
 }
