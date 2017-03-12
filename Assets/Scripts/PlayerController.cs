@@ -5,6 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] private GunController gun;
+	[SerializeField] private UIManager uiManager;
+	private bool isSniper;
+
+	private void Start ()
+	{
+		this.isSniper = false;
+		uiManager.toggleSniperImage (this.isSniper);
+	}
 
 	// Update is called once per frame
 	private void Update ()
@@ -13,6 +21,10 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.R) && gun.canReload ()) {
 			gun.Reload ();
+		}
+
+		if (Input.GetMouseButton (1)) {
+			this.SwitchBetweenSniperMode ();
 		}
 	}
 
@@ -26,5 +38,11 @@ public class PlayerController : MonoBehaviour
 				gun.Shot (hit);
 			}
 		}
+	}
+
+	private void SwitchBetweenSniperMode ()
+	{
+		this.isSniper = !this.isSniper;
+		uiManager.toggleSniperImage (this.isSniper);
 	}
 }
